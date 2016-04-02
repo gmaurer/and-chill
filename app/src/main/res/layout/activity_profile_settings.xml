@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".activities.ProfileSettingsActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/dummy_profile_1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:id="@+id/nameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Alex Will"
+            android:textAlignment="center"
+            android:ems="10"
+            android:id="@+id/editText"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bioLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameLayout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/bioTexView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Bio:"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Bio"
+            android:ems="10"
+            android:id="@+id/bioEditText"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/genderLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bioLayout"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Gender:"
+            android:id="@+id/genderLabel"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/genderSpinner"
+            android:spinnerMode="dropdown"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/genderPreferenceLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/genderLayout"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/genderPreferenceTextView"
+            android:text="Gender Preference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/genderPreferenceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- None Selected -"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/genreLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/genderPreferenceLayout"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Favroite Genres:"/>
+        <Button
+            android:id="@+id/genreButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- None Selected -"/>
+
+    </LinearLayout>
+</RelativeLayout>

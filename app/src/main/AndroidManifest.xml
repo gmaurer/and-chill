@@ -13,8 +13,9 @@
     <activity android:name=".activities.MatchDetailActivity">
     </activity>
     <activity android:name=".activities.PrivateMessageActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
+    <activity android:name=".activities.ProfileSettingsActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
 
             <category android:name="android.intent.category.LAUNCHER"/>
         </intent-filter>
