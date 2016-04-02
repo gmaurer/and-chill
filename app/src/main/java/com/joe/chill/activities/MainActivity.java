@@ -1,7 +1,9 @@
-package com.joe.chill;
+package com.joe.chill.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.joe.chill.R;
 
 public class MainActivity extends AppCompatActivity {
 
