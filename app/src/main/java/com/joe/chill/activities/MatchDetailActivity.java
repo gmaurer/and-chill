@@ -66,7 +66,7 @@ public class MatchDetailActivity extends AppCompatActivity {
   }
 
   private void setImage(String url, ImageView imageView) {
-    Glide.with(this).load(url).centerCrop().into(imageView);
+    Glide.with(this).load(url).fitCenter().into(imageView);
   }
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {

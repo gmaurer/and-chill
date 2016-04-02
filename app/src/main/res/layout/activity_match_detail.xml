@@ -1,93 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activities.MatchDetailActivity">
 
-    <LinearLayout
+  <LinearLayout
+      android:id="@+id/toolbarLayout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+  </LinearLayout>
+
+  <android.support.v7.widget.CardView
+      xmlns:card_view="http://schemas.android.com/apk/res-auto"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/toolbarLayout"
+      android:layout_gravity="center"
+      android:weightSum="1"
+      card_view:cardElevation="8dp"
+      card_view:cardUseCompatPadding="true">
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true">
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar"/>
-    </LinearLayout>
-  <com.synnapps.carouselview.CarouselView
-      android:id="@+id/carouselView"
-      android:layout_width="match_parent"
-      android:layout_height="500dp"
-      app:fillColor="#FFFFFFFF"
-      app:pageColor="#00000000"
-      app:radius="6dp"
-      app:slideInterval="3000"
-      app:strokeColor="#FF777777"
-      app:strokeWidth="1dp"/>
+        android:padding="16dp">
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:text="Name, "
-      android:id="@+id/textViewName"
-      android:layout_below="@+id/carouselView"
-      android:layout_alignParentLeft="true"
-      android:layout_alignParentStart="true"
-      android:textStyle="bold"/>
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:text="69"
-      android:id="@+id/textViewAge"
-      android:layout_below="@+id/carouselView"
-      android:layout_toRightOf="@+id/textViewName"
-      android:textStyle="bold"/>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceSmall"
-      android:text="X miles away"
-      android:id="@+id/textViewDistance"
-      android:layout_below="@+id/textViewName"
-      android:layout_alignParentLeft="true"
-      android:layout_alignParentStart="true"
-      android:textStyle="normal"/>
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="@dimen/activity_horizontal_margin"
-      android:textAppearance="?android:attr/textAppearanceSmall"
-      android:text="active x minutes ago"
-      android:id="@+id/textViewActive"
-      android:layout_below="@+id/textViewName"
-      android:layout_toRightOf="@+id/textViewDistance"
-      android:textStyle="italic"/>
+        <com.synnapps.carouselview.CarouselView
+            android:id="@+id/carouselView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            app:autoPlay="false"
+            app:fillColor="#FFFFFFFF"
+            app:pageColor="#00000000"
+            app:radius="6dp"
+            app:slideInterval="3000"
+            app:strokeColor="#FF777777"
+            app:strokeWidth="1dp"/>
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:text="About X"
-      android:id="@+id/textViewAbout"
-      android:layout_below="@+id/textViewDistance"
-      android:layout_alignParentLeft="true"
-      android:layout_alignParentStart="true"
-      android:textStyle="bold"/>
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:text="Bio here."
-      android:id="@+id/textViewBio"
-      android:layout_below="@+id/textViewAbout"
-      android:textStyle="normal"/>
+        <RelativeLayout
+            android:id="@+id/nameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/carouselView">
 
+          <TextView
+              android:id="@+id/textViewName"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentStart="true"
+              android:text="Name,"
+              android:textAppearance="?android:attr/textAppearanceLarge"
+              android:textStyle="bold"/>
+
+          <TextView
+              android:id="@+id/textViewAge"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toRightOf="@+id/textViewName"
+              android:text="69"
+              android:textAppearance="?android:attr/textAppearanceLarge"
+              android:textStyle="normal"/>
+
+          <TextView
+              android:id="@+id/textViewDistance"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentStart="true"
+              android:layout_below="@+id/textViewName"
+              android:text="X miles away"
+              android:textAppearance="?android:attr/textAppearanceSmall"
+              android:textStyle="normal"/>
+
+          <TextView
+              android:id="@+id/textViewActive"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/textViewName"
+              android:layout_marginLeft="@dimen/activity_horizontal_margin"
+              android:layout_toRightOf="@+id/textViewDistance"
+              android:text="active x minutes ago"
+              android:textAppearance="?android:attr/textAppearanceSmall"
+              android:textStyle="italic"/>
+
+          <TextView
+              android:id="@+id/textViewAbout"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentStart="true"
+              android:layout_below="@+id/textViewDistance"
+              android:text="About X"
+              android:textAppearance="?android:attr/textAppearanceLarge"
+              android:textStyle="bold"/>
+
+          <TextView
+              android:id="@+id/textViewBio"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/textViewAbout"
+              android:text="Bio here."
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:textStyle="normal"/>
+        </RelativeLayout>
+      </LinearLayout>
+    </RelativeLayout>
+  </android.support.v7.widget.CardView>
 </RelativeLayout>
