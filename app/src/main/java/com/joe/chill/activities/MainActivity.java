@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
 
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     mMatchCardList = new ArrayList<>();
 //    mMatchCardList.add(new MatchCard("Amy", 23, new ArrayList<String>()));
 //    mMatchCardList.add(new MatchCard("Gabriel", 22, new ArrayList<String>()));
@@ -159,18 +160,25 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, ProfileSettingsActivity.class);
-            startActivity(intent);
-        }
+      Intent intent;
 
-        if (id == R.id.action_Chat) {
-            Intent intent = new Intent(this, PrivateMessageActivity.class);
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
+       switch (item.getItemId()) {
+         case R.id.action_settings:
+           intent = new Intent(this, ProfileSettingsActivity.class);
+           startActivity(intent);
+           return true;
+         case R.id.action_Chat:
+           intent = new Intent(this, PrivateMessageActivity.class);
+           startActivity(intent);
+           return true;
+         case android.R.id.home:
+           intent = new Intent(this, MainActivity.class);
+           startActivity(intent);
+           return true;
+          default:
+            return super.onOptionsItemSelected(item);
+       }
+
     }
 }
