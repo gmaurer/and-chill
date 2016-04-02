@@ -21,7 +21,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipChildren="false">
 
-
   <link.fls.swipestack.SwipeStack
       android:id="@+id/cardStack"
       android:layout_width="match_parent"
@@ -59,7 +58,6 @@
       android:layout_margin="@dimen/activity_horizontal_margin"
       android:id="@+id/buttonYes"
       android:layout_gravity="right|bottom"/>
-
 
 </FrameLayout>
 

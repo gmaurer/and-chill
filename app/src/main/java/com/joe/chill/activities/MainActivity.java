@@ -89,6 +89,20 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
       }
     });
 
+    mButtonNo.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        mSwipeStack.swipeTopViewToLeft();
+      }
+    });
+
+    mButtonYes.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        mSwipeStack.swipeTopViewToRight();
+      }
+    });
+
     getNewOptions();
   }
 
