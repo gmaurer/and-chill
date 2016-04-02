@@ -1,6 +1,7 @@
 package com.joe.chill.activities;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import at.markushi.ui.CircleButton;
 import link.fls.swipestack.SwipeStack;
 
 public class MainActivity extends AppCompatActivity implements JsonHandler {
@@ -31,9 +33,9 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
   private SwipeStack mSwipeStack;
   private CardStackAdapter mCardStackAdapter;
   private List<MatchCard> mMatchCardList;
-  private LikeButton mLikeButtonYes;
-  private LikeButton mLikeButtonNo;
-  private LikeButton mLikeButtonInfo;
+  private CircleButton mButtonYes;
+  private CircleButton mButtonNo;
+  private CircleButton mButtonInfo;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +60,6 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
       @Override
       public void onViewSwipedToRight(int position) {
         mCardStackAdapter.pop();
-        mLikeButtonYes.performClick();
-
       }
 
       @Override
@@ -68,31 +68,14 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
       }
     });
 
-    mLikeButtonYes = (LikeButton) findViewById(R.id.imageButtonYes);
-    mLikeButtonNo = (LikeButton) findViewById(R.id.imageButtonNo);
-    mLikeButtonInfo = (LikeButton) findViewById(R.id.imageButtonInfo);
+    mButtonYes = (CircleButton) findViewById(R.id.buttonYes);
+    mButtonNo = (CircleButton) findViewById(R.id.buttonNo);
+    mButtonInfo = (CircleButton) findViewById(R.id.buttonInfo);
 
-    mLikeButtonYes.setOnLikeListener(new OnLikeListener() {
+    mButtonInfo.setOnClickListener(new View.OnClickListener() {
       @Override
-      public void liked(LikeButton likeButton) {
-
-      }
-
-      @Override
-      public void unLiked(LikeButton likeButton) {
-
-      }
-    });
-
-    mLikeButtonInfo.setOnLikeListener(new OnLikeListener() {
-      @Override
-      public void liked(LikeButton likeButton) {
+      public void onClick(View v) {
         launchDetailActivity(mCardStackAdapter.top());
-      }
-
-      @Override
-      public void unLiked(LikeButton likeButton) {
-
       }
     });
 
