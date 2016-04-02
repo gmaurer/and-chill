@@ -29,7 +29,8 @@
       android:id="@+id/textViewName"
       android:layout_below="@+id/carouselView"
       android:layout_alignParentLeft="true"
-      android:layout_alignParentStart="true"/>
+      android:layout_alignParentStart="true"
+      android:textStyle="bold"/>
   <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -37,8 +38,47 @@
       android:text="69"
       android:id="@+id/textViewAge"
       android:layout_below="@+id/carouselView"
-      android:layout_toEndOf="@+id/textViewName"
+      android:layout_toRightOf="@+id/textViewName"
+      android:textStyle="bold"/>
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceSmall"
+      android:text="X miles away"
+      android:id="@+id/textViewDistance"
+      android:layout_below="@+id/textViewName"
       android:layout_alignParentLeft="true"
-      android:layout_alignParentStart="true"/>
+      android:layout_alignParentStart="true"
+      android:textStyle="normal"/>
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="@dimen/activity_horizontal_margin"
+      android:textAppearance="?android:attr/textAppearanceSmall"
+      android:text="active x minutes ago"
+      android:id="@+id/textViewActive"
+      android:layout_below="@+id/textViewName"
+      android:layout_toRightOf="@+id/textViewDistance"
+      android:textStyle="italic"/>
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceLarge"
+      android:text="About X"
+      android:id="@+id/textViewAbout"
+      android:layout_below="@+id/textViewDistance"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true"
+      android:textStyle="bold"/>
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:text="Bio here."
+      android:id="@+id/textViewBio"
+      android:layout_below="@+id/textViewAbout"
+      android:textStyle="normal"/>
 
 </RelativeLayout>
