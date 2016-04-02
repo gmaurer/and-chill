@@ -3,12 +3,35 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipChildren="false">
 
   <link.fls.swipestack.SwipeStack
       android:id="@+id/cardStack"
-      android:layout_width="320dp"
-      android:layout_height="240dp"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginBottom="150dp"
       android:padding="32dp"/>
+
+  <com.like.LikeButton
+      app:icon_type="heart"
+      app:icon_size="50dp"
+      android:id="@+id/imageButtonNo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="left|bottom"/>
+
+
+
+  <com.like.LikeButton
+      app:icon_type="heart"
+      app:icon_size="50dp"
+      android:id="@+id/imageButtonYes"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="right|bottom"
+      app:dots_primary_color="@color/accent"
+      app:dots_secondary_color="@color/primary"/>
+
 
 </FrameLayout>
