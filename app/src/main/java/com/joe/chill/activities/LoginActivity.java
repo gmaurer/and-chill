@@ -14,6 +14,12 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.joe.chill.R;
 
+
+//THIS IS HOW TO SET HASH KEY, go to .android directory and run
+//keytool -exportcert -alias androiddebugkey -keystore debug.keystore | openssl sha1 -binary | openssl base64
+//copy key and put into dev facebook login
+
+
 public class LoginActivity extends AppCompatActivity {
     public static final String TAG = "LoginActivity";
     CallbackManager callbackManager;
