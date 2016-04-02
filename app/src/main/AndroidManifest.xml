@@ -19,10 +19,10 @@
         <provider android:authorities="com.facebook.app.FacebookContentProvider223674741353538"
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true" />
-        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.MatchDetailActivity" />
         <activity android:name=".activities.PrivateMessageActivity"></activity>
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
