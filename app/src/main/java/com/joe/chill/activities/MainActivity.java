@@ -1,8 +1,10 @@
 package com.joe.chill.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.joe.chill.R;
 import com.joe.chill.adapters.CardStackAdapter;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
   private List<MatchCard> mMatchCardList;
   private LikeButton mLikeButtonYes;
   private LikeButton mLikeButtonNo;
+  private LikeButton mLikeButtonInfo;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +52,12 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
     mSwipeStack.setListener(new SwipeStack.SwipeStackListener() {
       @Override
       public void onViewSwipedToLeft(int position) {
+        mCardStackAdapter.pop();
       }
 
       @Override
       public void onViewSwipedToRight(int position) {
+        mCardStackAdapter.pop();
         mLikeButtonYes.performClick();
 
       }
@@ -65,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
 
     mLikeButtonYes = (LikeButton) findViewById(R.id.imageButtonYes);
     mLikeButtonNo = (LikeButton) findViewById(R.id.imageButtonNo);
+    mLikeButtonInfo = (LikeButton) findViewById(R.id.imageButtonInfo);
 
     mLikeButtonYes.setOnLikeListener(new OnLikeListener() {
       @Override
@@ -77,9 +83,27 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
 
       }
     });
+
+    mLikeButtonInfo.setOnLikeListener(new OnLikeListener() {
+      @Override
+      public void liked(LikeButton likeButton) {
+        launchDetailActivity(mCardStackAdapter.top());
+      }
+
+      @Override
+      public void unLiked(LikeButton likeButton) {
+
+      }
+    });
+
     getNewOptions();
   }
 
+  private void launchDetailActivity(MatchCard userId) {
+    Intent intent = new Intent(this, MatchDetailActivity.class);
+    intent.putExtra(MatchDetailActivity.TAG, userId);
+    startActivity(intent);
+  }
 
   private void getNewOptions() {
     new HttpGetTask(this).execute("http://www.mocky.io/v2/56ffe4fb1300006b2b151d6b");
@@ -91,6 +115,8 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
       JSONArray jsonArray = new JSONArray(json);
       for (int i = 0; i < jsonArray.length(); i++) {
         String name = jsonArray.getJSONObject(i).getString("name");
+        String userid = jsonArray.getJSONObject(i).getString("userid");
+        String bio = jsonArray.getJSONObject(i).getString("bio");
         Calendar born = Calendar.getInstance();
         Calendar now = Calendar.getInstance();
         born.setTime(new Date(jsonArray.getJSONObject(i).getLong("dob")));
@@ -104,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
         for (int j = 0; j < urlArray.length(); j++) {
           urls.add(urlArray.getString(j));
         }
-        mCardStackAdapter.add(new MatchCard(name, age, urls));
+        mCardStackAdapter.add(new MatchCard(userid, name, bio, age, urls));
       }
       mCardStackAdapter.notifyDataSetChanged();
     } catch (JSONException e) {

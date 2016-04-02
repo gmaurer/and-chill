@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -23,29 +25,38 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
+      updateWithToken(AccessToken.getCurrentAccessToken());
+
+      AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
+        @Override
+        protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken newAccessToken) {
+          updateWithToken(newAccessToken);
+        }
+      };
+
         setContentView(R.layout.activity_login);
         callbackManager = CallbackManager.Factory.create();
         loginButton = (LoginButton) findViewById(R.id.login_button);
-        //List<String> permissionNeeds = Arrays.asList("user_photos", "email", "user_birthday", "public_profile");
-        //loginButton.setReadPermissions(permissionNeeds);
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Log.i(TAG, "Login Success!");
-                launchMain();
+      //List<String> permissionNeeds = Arrays.asList("user_photos", "email", "user_birthday", "public_profile");
+      //loginButton.setReadPermissions(permissionNeeds);
+      loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        @Override
+        public void onSuccess(LoginResult loginResult) {
+          Log.i(TAG, "Login Success!");
+          launchMain();
 
-            }
+        }
 
-            @Override
-            public void onCancel() {
-                System.out.println("onCancel");
-            }
+        @Override
+        public void onCancel() {
+          System.out.println("onCancel");
+          }
 
-            @Override
-            public void onError(FacebookException exception) {
-                System.out.println(exception);
-                Log.e("LoginActivity", exception.toString());
-            }
+          @Override
+          public void onError(FacebookException exception) {
+            System.out.println(exception);
+            Log.e("LoginActivity", exception.toString());
+          }
         });
     }
 
@@ -53,6 +64,14 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+  private void updateWithToken(AccessToken currentAccessToken) {
+    if (currentAccessToken != null) {
+      launchMain();
+    } else {
+    }
+  }
+
     /*public void onClickBtn(View v)
     {
         Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
