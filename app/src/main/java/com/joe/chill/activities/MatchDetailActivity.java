@@ -92,8 +92,7 @@ public class MatchDetailActivity extends AppCompatActivity {
         startActivity(intent);
         return true;
       case android.R.id.home:
-        intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        onBackPressed();
         return true;
       default:
         return super.onOptionsItemSelected(item);

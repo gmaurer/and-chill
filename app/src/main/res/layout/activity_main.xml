@@ -32,7 +32,7 @@
       android:layout_width="@dimen/circle_button_size"
       android:layout_height="@dimen/circle_button_size"
       android:src="@drawable/ic_close_white_48dp"
-      app:cb_color="@color/primary"
+      app:cb_color="@color/deny"
       app:cb_pressedRingWidth="8dip"
       android:layout_margin="@dimen/activity_horizontal_margin"
       android:id="@+id/buttonNo"

@@ -170,8 +170,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
            startActivity(intent);
            return true;
          case android.R.id.home:
-           intent = new Intent(this, MainActivity.class);
-           startActivity(intent);
+           onBackPressed();
            return true;
           default:
             return super.onOptionsItemSelected(item);
