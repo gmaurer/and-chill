@@ -6,76 +6,21 @@
     style="@style/welcome_page"
     tools:background="#B6B6B6">
 
-    <com.synnapps.carouselview.CarouselView
-        android:id="@+id/carouselView"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        app:fillColor="#FFFFFFFF"
-        app:pageColor="#00000000"
-        app:radius="6dp"
-        app:slideInterval="3000"
-        app:strokeColor="#FF777777"
-        app:strokeWidth="1dp"/>
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Name, "
-        android:id="@+id/textViewName"
-        android:layout_below="@+id/carouselView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="69"
-        android:id="@+id/textViewAge"
-        android:layout_below="@+id/carouselView"
-        android:layout_toRightOf="@+id/textViewName"
-        android:textStyle="bold"/>
+        >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="X miles away"
-        android:id="@+id/textViewDistance"
-        android:layout_below="@+id/textViewName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="normal"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="active x minutes ago"
-        android:id="@+id/textViewActive"
-        android:layout_below="@+id/textViewName"
-        android:layout_toRightOf="@+id/textViewDistance"
-        android:textStyle="italic"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="About X"
-        android:id="@+id/textViewAbout"
-        android:layout_below="@+id/textViewDistance"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Bio here."
-        android:id="@+id/textViewBio"
-        android:layout_below="@+id/textViewAbout"
-        android:textStyle="normal"/>
+        android:id="@+id/imageViewWelcome" />
+    </RelativeLayout>
+
 
 
 

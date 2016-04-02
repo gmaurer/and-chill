@@ -30,4 +30,7 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.5.0'
     compile 'com.android.support:design:23.2.1'
     compile 'com.redbooth:WelcomeCoordinator:1.0.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:support-v4:23.1.0'
+    compile 'com.github.jd-alexander:LikeButton:0.1.8'
 }
