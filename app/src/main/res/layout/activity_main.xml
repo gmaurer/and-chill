@@ -21,7 +21,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipChildren="false">
 
-
   <link.fls.swipestack.SwipeStack
       android:id="@+id/cardStack"
       android:layout_width="match_parent"
@@ -29,35 +28,36 @@
       android:layout_marginBottom="150dp"
       android:padding="32dp"/>
 
-  <com.like.LikeButton
-      app:icon_type="heart"
-      app:icon_size="50dp"
-      android:id="@+id/imageButtonNo"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+  <at.markushi.ui.CircleButton
+      android:layout_width="@dimen/circle_button_size"
+      android:layout_height="@dimen/circle_button_size"
+      android:src="@drawable/ic_close_white_48dp"
+      app:cb_color="@color/primary"
+      app:cb_pressedRingWidth="8dip"
+      android:layout_margin="@dimen/activity_horizontal_margin"
+      android:id="@+id/buttonNo"
       android:layout_gravity="left|bottom"/>
 
 
-  <com.like.LikeButton
-      app:icon_type="star"
-      app:icon_size="50dp"
-      android:id="@+id/imageButtonInfo"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+  <at.markushi.ui.CircleButton
+      android:layout_width="@dimen/circle_button_size"
+      android:layout_height="@dimen/circle_button_size"
+      android:src="@drawable/ic_info_outline_white_48dp"
+      app:cb_color="@color/divider"
+      app:cb_pressedRingWidth="8dip"
+      android:layout_margin="@dimen/activity_horizontal_margin"
+      android:id="@+id/buttonInfo"
       android:layout_gravity="center|bottom"/>
 
-
-
-  <com.like.LikeButton
-      app:icon_type="heart"
-      app:icon_size="50dp"
-      android:id="@+id/imageButtonYes"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="right|bottom"
-      app:dots_primary_color="@color/accent"
-      app:dots_secondary_color="@color/primary"/>
-
+  <at.markushi.ui.CircleButton
+      android:layout_width="@dimen/circle_button_size"
+      android:layout_height="@dimen/circle_button_size"
+      android:src="@drawable/ic_check_white_48dp"
+      app:cb_color="@color/accept"
+      app:cb_pressedRingWidth="8dip"
+      android:layout_margin="@dimen/activity_horizontal_margin"
+      android:id="@+id/buttonYes"
+      android:layout_gravity="right|bottom"/>
 
 </FrameLayout>
 
