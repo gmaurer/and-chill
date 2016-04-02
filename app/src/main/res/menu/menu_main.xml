@@ -11,5 +11,12 @@
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
-        android:showAsAction="never" />
+        android:icon="@drawable/ic_settings_white_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_Chat"
+        android:title="Chat"
+        android:icon="@drawable/ic_chat_white_24dp"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"/>
 </menu>
