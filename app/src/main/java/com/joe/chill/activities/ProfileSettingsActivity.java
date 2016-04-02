@@ -19,10 +19,12 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
 
     Spinner mGenderSpinner;
     Button mGenreButton;
+    Button mGenderPreferenceButton;
 
     HashMap<String, Integer> mGenderMap;
     String[] mGenresArray = {"Drama", "Action", "Anime", "Comedy"};
     ArrayList<String> mSelectedGenresArrayList = new ArrayList<>();
+    ArrayList<String> mSelectedGenderPreferenceList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,9 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
 
         mGenreButton = (Button) findViewById(R.id.genreButton);
         mGenreButton.setOnClickListener(this);
+
+        mGenderPreferenceButton =  (Button) findViewById(R.id.genderPreferenceButton);
+        mGenderPreferenceButton.setOnClickListener(this);
     }
 
     @Override
@@ -51,7 +56,8 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
             case R.id.genreButton:
                 showGenreChoicesDialog();
                 break;
-
+            case R.id.genderPreferenceButton:
+                showGenderPreference();
             default:
                 break;
 
@@ -85,7 +91,14 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle("Select Genres");
         dialogBuilder.setMultiChoiceItems(mGenresArray, checkedGenres, genresDialogListener);
+        dialogBuilder.setNeutralButton("Close", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
         AlertDialog dialog = dialogBuilder.create();
+        dialog.setCanceledOnTouchOutside(true);
         dialog.show();
     }
 
@@ -97,4 +110,52 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
 
         mGenreButton.setText(stringBuilder.toString());
     }
+
+    protected void showGenderPreference() {
+        boolean[] checkedGenders = new boolean[mGenderMap.size()];
+
+        int count = mGenderMap.size();
+        final String[] genders = mGenderMap.keySet().toArray(new String[mGenderMap.size()]);
+
+        for(int i = 0; i < count; i++) {
+            checkedGenders[i] = mSelectedGenderPreferenceList.contains(genders[i]);
+        }
+
+        DialogInterface.OnMultiChoiceClickListener genderDialogListner = new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+
+            public void onClick(DialogInterface dialogInterface, int which, boolean isChecked) {
+
+                if (isChecked)
+                    mSelectedGenderPreferenceList.add(genders[which]);
+                else
+                    mSelectedGenderPreferenceList.remove(genders[which]);
+
+                onChangeSelectedGenderPreferences();
+            }
+        };
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle("Select Perferred Genders");
+        dialogBuilder.setMultiChoiceItems(genders, checkedGenders, genderDialogListner);
+        dialogBuilder.setNeutralButton("Close", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = dialogBuilder.create();
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
+    }
+
+    protected void onChangeSelectedGenderPreferences() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (String genre : mSelectedGenderPreferenceList)
+            stringBuilder.append(genre + ",");
+
+        mGenderPreferenceButton.setText(stringBuilder.toString());
+    }
+
 }

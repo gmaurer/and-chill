@@ -17,23 +17,46 @@
         android:src="@drawable/dummy_profile_1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
-
-    <EditText
+    <LinearLayout
+        android:id="@+id/nameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Alex Will"
-        android:textAlignment="center"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_below="@+id/imageView"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView"/>
+        android:layout_below="@id/imageView"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Alex Will"
+            android:textAlignment="center"
+            android:ems="10"
+            android:id="@+id/editText"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bioLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameLayout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/bioTexView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Bio:"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Bio"
+            android:ems="10"
+            android:id="@+id/bioEditText"/>
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/genderLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editText"
+        android:layout_below="@id/bioLayout"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -49,10 +72,27 @@
             android:spinnerMode="dropdown"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/genderPreferenceLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/genderLayout"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/genderPreferenceTextView"
+            android:text="Gender Preference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/genderPreferenceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- None Selected -"/>
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/genreLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/genderLayout"
+        android:layout_below="@id/genderPreferenceLayout"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -62,9 +102,7 @@
             android:id="@+id/genreButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="- None Selected -"
-            android:onClick="onClick"
-            />
+            android:text="- None Selected -"/>
 
     </LinearLayout>
 </RelativeLayout>
