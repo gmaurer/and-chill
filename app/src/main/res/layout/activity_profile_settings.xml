@@ -26,21 +26,24 @@
         android:layout_centerHorizontal="true"/>
     <LinearLayout
         android:id="@+id/nameLayout"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/editText"
             android:layout_width="wrap_content"
+            android:gravity="center_vertical"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:text="Alex Will"
             android:textAlignment="center"
-            android:ems="10"
-            android:id="@+id/editText"/>
+            android:ems="10"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/bioLayout"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/nameLayout"
@@ -50,10 +53,11 @@
             android:id="@+id/bioTexView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Bio:"/>
         <EditText
             android:layout_width="wrap_content"
+            android:gravity="center"
             android:layout_height="wrap_content"
             android:text="Enter Bio"
             android:ems="10"
@@ -61,6 +65,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/genderLayout"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/bioLayout"
@@ -68,11 +73,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Gender:"
             android:id="@+id/genderLabel"/>
 
         <Spinner
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/genderSpinner"
@@ -82,21 +88,25 @@
         android:id="@+id/genderPreferenceLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/genderLayout"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/genderPreferenceTextView"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Gender Preference"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/genderPreferenceButton"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="- None Selected -"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/genreLayout"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/genderPreferenceLayout"
@@ -104,9 +114,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Favroite Genres:"/>
         <Button
             android:id="@+id/genreButton"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="- None Selected -"/>

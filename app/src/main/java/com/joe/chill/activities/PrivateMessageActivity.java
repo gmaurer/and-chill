@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import com.joe.chill.R;
+import com.joe.chill.ToolbarUtility;
 import com.joe.chill.adapters.MessageArrayAdapter;
 import com.joe.chill.structs.ChatMessage;
 
@@ -91,23 +92,8 @@ public class PrivateMessageActivity extends AppCompatActivity {
     // automatically handle clicks on the Home/Up button, so long
     // as you specify a parent activity in AndroidManifest.xml.
 
-    Intent intent;
+    return ToolbarUtility.onOptionsItemSelected(this, item);
 
-    switch (item.getItemId()) {
-      case R.id.action_settings:
-        intent = new Intent(this, ProfileSettingsActivity.class);
-        startActivity(intent);
-        return true;
-      case R.id.action_Chat:
-        intent = new Intent(this, PrivateMessageActivity.class);
-        startActivity(intent);
-        return true;
-      case android.R.id.home:
-        onBackPressed();
-        return true;
-      default:
-        return super.onOptionsItemSelected(item);
-    }
 
   }
 }
