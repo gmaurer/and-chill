@@ -50,7 +50,7 @@ public class MessageArrayAdapter extends ArrayAdapter<ChatMessage> {
     } else {
       row = inflater.inflate(R.layout.recipient_message, parent, false);
     }
-    mChatText = (TextView) row.findViewById(R.id.msgr);
+    mChatText = (TextView) row.findViewById(R.id.textViewMessage);
     mChatText.setText(chatMessageObj.message);
     return row;
   }
