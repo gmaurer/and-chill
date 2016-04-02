@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.joe.chill.R;
+import com.joe.chill.ToolbarUtility;
 import com.joe.chill.adapters.CardStackAdapter;
 import com.joe.chill.interfaces.JsonHandler;
 import com.joe.chill.structs.MatchCard;
@@ -157,24 +158,6 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-
-      Intent intent;
-
-       switch (item.getItemId()) {
-         case R.id.action_settings:
-           intent = new Intent(this, ProfileSettingsActivity.class);
-           startActivity(intent);
-           return true;
-         case R.id.action_Chat:
-           intent = new Intent(this, PrivateMessageActivity.class);
-           startActivity(intent);
-           return true;
-         case android.R.id.home:
-           onBackPressed();
-           return true;
-          default:
-            return super.onOptionsItemSelected(item);
-       }
-
+      return ToolbarUtility.onOptionsItemSelected(this, item);
     }
 }
