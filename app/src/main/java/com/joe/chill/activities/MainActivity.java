@@ -1,14 +1,13 @@
 package com.joe.chill.activities;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.joe.chill.R;
 import com.joe.chill.ToolbarUtility;
@@ -16,12 +15,9 @@ import com.joe.chill.adapters.CardStackAdapter;
 import com.joe.chill.interfaces.JsonHandler;
 import com.joe.chill.structs.MatchCard;
 import com.joe.chill.tasks.HttpGetTask;
-import com.like.LikeButton;
-import com.like.OnLikeListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -91,6 +87,13 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
       }
     });
 
+    mButtonInfo.setOnLongClickListener(new View.OnLongClickListener() {
+      public boolean onLongClick(View v) {
+        launchLongClickSpecial();
+        return true;
+      }
+    });
+
     mButtonNo.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -112,6 +115,12 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
     Intent intent = new Intent(this, MatchDetailActivity.class);
     intent.putExtra(MatchDetailActivity.TAG, userId);
     startActivity(intent);
+  }
+
+  private void launchLongClickSpecial(){
+    Intent intent = new Intent(this, AdActivity.class);
+    startActivity(intent);
+
   }
 
   private void getNewOptions() {
