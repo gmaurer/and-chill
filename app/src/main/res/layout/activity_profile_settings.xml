@@ -16,12 +16,26 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
     </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarLayout"
+        android:layout_gravity="center"
+        android:weightSum="1"
+        card_view:cardElevation="8dp"
+        card_view:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:paddingTop="@dimen/default_indicator_margin_vertical"
-        android:layout_below="@+id/toolbarLayout"
         android:src="@drawable/dummy_profile_1"
         android:layout_centerHorizontal="true"/>
     <LinearLayout
@@ -94,12 +108,13 @@
         <TextView
             android:id="@+id/genderPreferenceTextView"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Gender Preference"
+            android:text="I Perfer: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/genderPreferenceButton"
             android:gravity="center"
+            android:background="@color/transperant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="- None Selected -"/>
@@ -115,13 +130,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Favroite Genres:"/>
+            android:text="I Like: "/>
         <Button
             android:id="@+id/genreButton"
             android:gravity="center"
+            android:background="@color/transperant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="- None Selected -"/>
 
     </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
