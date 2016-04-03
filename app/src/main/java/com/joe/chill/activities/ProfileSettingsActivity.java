@@ -16,11 +16,16 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.joe.chill.R;
 import com.joe.chill.structs.MatchCard;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+
+
 
 public class ProfileSettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -44,6 +49,10 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
 
       Intent intent = getIntent();
       mUser = intent.getParcelableExtra(MainActivity.TAG);
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
       ImageView imageView = (ImageView) findViewById(R.id.imageViewSettings);
       Glide.with(this).load(mUser.getImageUrls().get(0)).fitCenter().into(imageView);
@@ -74,6 +83,8 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
 
         mGenderPreferenceButton =  (Button) findViewById(R.id.genderPreferenceButton);
         mGenderPreferenceButton.setOnClickListener(this);
+
+
     }
 
     @Override
