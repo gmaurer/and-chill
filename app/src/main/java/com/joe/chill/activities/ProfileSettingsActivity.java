@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.bumptech.glide.Glide;
 import com.joe.chill.R;
 import com.joe.chill.structs.MatchCard;
 
@@ -27,16 +30,29 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
     Button mGenreButton;
     Button mGenderPreferenceButton;
     Toolbar mToolbar;
+  EditText mEditTextName;
 
     HashMap<String, Integer> mGenderMap;
     String[] mGenresArray = {"Drama", "Action", "Anime", "Comedy"};
     ArrayList<String> mSelectedGenresArrayList = new ArrayList<>();
     ArrayList<String> mSelectedGenderPreferenceList = new ArrayList<>();
 
+  private MatchCard mUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_settings);
+
+      Intent intent = getIntent();
+      mUser = intent.getParcelableExtra(MainActivity.TAG);
+
+      ImageView imageView = (ImageView) findViewById(R.id.imageViewSettings);
+      Glide.with(this).load(mUser.getImageUrls().get(0)).fitCenter().into(imageView);
+
+      mEditTextName = (EditText) findViewById(R.id.editTextSettingsName);
+      mEditTextName.setText(mUser.getName());
+
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 

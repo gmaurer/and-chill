@@ -13,21 +13,25 @@ public class MatchCard implements Parcelable {
   private String mName;
   private String mBio;
   private List<String> mImageUrls;
-  private int mAge;
+  private List<String> mGenres;
+  private long mAge;
 
-  public MatchCard(String userId, String name, String bio, int age, List<String> imageUrls) {
+  public MatchCard(String userId, String name, String bio, long age, List<String> imageUrls,
+                   List<String> genres) {
     setUserId(userId);
     setName(name);
     setImageUrls(imageUrls);
     setUserBio(bio);
     setAge(age);
+    setGenres(genres);
   }
 
   protected MatchCard(Parcel in) {
     mUserId = in.readString();
     mName = in.readString();
-    mAge = in.readInt();
+    mAge = in.readLong();
     mImageUrls = in.createStringArrayList();
+    mGenres = in.createStringArrayList();
     mBio = in.readString();
   }
 
@@ -71,15 +75,23 @@ public class MatchCard implements Parcelable {
     mImageUrls = imageUrls;
   }
 
+  public List<String> getGenres() {
+    return mGenres;
+  }
+
+  public void setGenres(List<String> genres) {
+    mGenres = genres;
+  }
+
   public List<String> getImageUrls() {
     return mImageUrls;
   }
 
-  public void setAge(int age) {
+  public void setAge(long age) {
     mAge = age;
   }
 
-  public int getAge() {
+  public long getAge() {
     return mAge;
   }
 
@@ -92,8 +104,9 @@ public class MatchCard implements Parcelable {
   public void writeToParcel(Parcel dest, int flags) {
     dest.writeString(getUserId());
     dest.writeString(getName());
-    dest.writeInt(getAge());
+    dest.writeLong(getAge());
     dest.writeStringList(getImageUrls());
+    dest.writeStringList(getGenres());
     dest.writeString(getUserBio());
   }
 }

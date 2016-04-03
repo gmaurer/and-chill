@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:maxHeight="250dp"
                 android:adjustViewBounds="true"
-                android:id="@+id/imageView"
+                android:id="@+id/imageViewSettings"
                 android:paddingTop="@dimen/default_indicator_margin_vertical"
                 android:src="@drawable/dummy_profile_1"
                 android:layout_centerHorizontal="true"/>
@@ -47,10 +47,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imageView"
+                android:layout_below="@id/imageViewSettings"
                 android:orientation="horizontal">
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/editTextSettingsName"
                     android:layout_width="wrap_content"
                     android:gravity="center_vertical"
                     android:layout_height="wrap_content"
