@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -49,8 +50,9 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
         mGenderMap.put("Other", 4);
         mGenderSpinner = (Spinner) findViewById(R.id.genderSpinner);
         ArrayAdapter<String> genderAdapter = new ArrayAdapter<String>(this,
-                R.layout.support_simple_spinner_dropdown_item,
+                R.layout.spinner_item,
                 mGenderMap.keySet().toArray(new String[mGenderMap.size()]));
+
         mGenderSpinner.setAdapter(genderAdapter);
 
         mGenreButton = (Button) findViewById(R.id.genreButton);
