@@ -30,8 +30,45 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+<<<<<<< HEAD
             android:layout_height="wrap_content"
             android:padding="16dp">
+=======
+            android:layout_height="match_parent"
+            android:padding="16dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="200dp"
+        android:id="@+id/imageView"
+        android:paddingTop="@dimen/default_indicator_margin_vertical"
+        android:src="@drawable/dummy_profile_1"
+        android:layout_centerInParent="true"/>
+    <LinearLayout
+        android:id="@+id/nameLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imageView"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="match_parent"
+            android:inputType="textPersonName"
+            android:text="Alex Will"
+            android:textAlignment="center"
+            android:ems="10"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bioLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameLayout"
+        android:orientation="horizontal">
+>>>>>>> 73a87365c4361ba936e28406282492ad782dbf7c
 
             <ImageView
                 android:layout_width="match_parent"

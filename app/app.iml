@@ -100,7 +100,10 @@
     <orderEntry type="library" exported="" name="carouselview-0.0.9" level="project" />
     <orderEntry type="library" exported="" name="circlebutton-1.1" level="project" />
     <orderEntry type="library" exported="" name="design-23.2.1" level="project" />
+<<<<<<< HEAD
     <orderEntry type="library" exported="" name="circleimageview-2.0.0" level="project" />
+=======
+>>>>>>> 73a87365c4361ba936e28406282492ad782dbf7c
     <orderEntry type="library" exported="" name="cardview-v7-23.2.1" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.2.1" level="project" />
     <orderEntry type="library" exported="" name="facebook-android-sdk-4.5.0" level="project" />
@@ -108,8 +111,13 @@
     <orderEntry type="library" exported="" name="support-v4-23.2.1" level="project" />
     <orderEntry type="library" exported="" name="LikeButton-0.1.8" level="project" />
     <orderEntry type="library" exported="" name="glide-3.7.0" level="project" />
+<<<<<<< HEAD
     <orderEntry type="library" exported="" name="support-annotations-23.2.1" level="project" />
     <orderEntry type="library" exported="" name="bolts-android-1.2.0" level="project" />
+=======
+    <orderEntry type="library" exported="" name="bolts-android-1.2.0" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-23.2.1" level="project" />
+>>>>>>> 73a87365c4361ba936e28406282492ad782dbf7c
     <orderEntry type="library" exported="" name="animated-vector-drawable-23.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-23.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-8.4.0" level="project" />

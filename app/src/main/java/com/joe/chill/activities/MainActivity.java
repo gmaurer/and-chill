@@ -1,13 +1,16 @@
 package com.joe.chill.activities;
 
 import android.content.Intent;
+<<<<<<< HEAD
+=======
+import android.os.Bundle;
+>>>>>>> 73a87365c4361ba936e28406282492ad782dbf7c
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.joe.chill.R;
 import com.joe.chill.ToolbarUtility;
@@ -87,6 +90,13 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
       }
     });
 
+    mButtonInfo.setOnLongClickListener(new View.OnLongClickListener() {
+      public boolean onLongClick(View v) {
+        launchLongClickSpecial();
+        return true;
+      }
+    });
+
     mButtonNo.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -108,6 +118,12 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
     Intent intent = new Intent(this, MatchDetailActivity.class);
     intent.putExtra(MatchDetailActivity.TAG, userId);
     startActivity(intent);
+  }
+
+  private void launchLongClickSpecial(){
+    Intent intent = new Intent(this, AdActivity.class);
+    startActivity(intent);
+
   }
 
   private void getNewOptions() {
