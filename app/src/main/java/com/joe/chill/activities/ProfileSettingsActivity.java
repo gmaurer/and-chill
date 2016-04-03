@@ -3,23 +3,31 @@ package com.joe.chill.activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.joe.chill.R;
-import com.joe.chill.structs.MatchCard;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+
+
+
+
+
+
+
+
 
 public class ProfileSettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -60,6 +68,13 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
 
         mGenderPreferenceButton =  (Button) findViewById(R.id.genderPreferenceButton);
         mGenderPreferenceButton.setOnClickListener(this);
+
+
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        mAdView.bringToFront();
     }
 
     @Override
