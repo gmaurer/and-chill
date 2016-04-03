@@ -13,14 +13,17 @@ public class MatchCard implements Parcelable {
   private String mName;
   private String mBio;
   private List<String> mImageUrls;
+  private List<String> mGenres;
   private long mAge;
 
-  public MatchCard(String userId, String name, String bio, long age, List<String> imageUrls) {
+  public MatchCard(String userId, String name, String bio, long age, List<String> imageUrls,
+                   List<String> genres) {
     setUserId(userId);
     setName(name);
     setImageUrls(imageUrls);
     setUserBio(bio);
     setAge(age);
+    setGenres(genres);
   }
 
   protected MatchCard(Parcel in) {
@@ -28,6 +31,7 @@ public class MatchCard implements Parcelable {
     mName = in.readString();
     mAge = in.readLong();
     mImageUrls = in.createStringArrayList();
+    mGenres = in.createStringArrayList();
     mBio = in.readString();
   }
 
@@ -71,6 +75,14 @@ public class MatchCard implements Parcelable {
     mImageUrls = imageUrls;
   }
 
+  public List<String> getGenres() {
+    return mGenres;
+  }
+
+  public void setGenres(List<String> genres) {
+    mGenres = genres;
+  }
+
   public List<String> getImageUrls() {
     return mImageUrls;
   }
@@ -94,6 +106,7 @@ public class MatchCard implements Parcelable {
     dest.writeString(getName());
     dest.writeLong(getAge());
     dest.writeStringList(getImageUrls());
+    dest.writeStringList(getGenres());
     dest.writeString(getUserBio());
   }
 }

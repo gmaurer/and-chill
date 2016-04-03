@@ -98,7 +98,7 @@ public class ChatListActivity extends AppCompatActivity implements JsonHandler {
     List<String> urls = new ArrayList<>();
     urls.add("http://www.eonline.com/eol_images/Entire_Site/201564/rs_600x600-150704101830-600.kim-kardashian.cm.7415.jpg");
 
-    mContactArrayAdapter.add(new MatchCard("1234","Kim", "bio", 12, urls));
+    mContactArrayAdapter.add(new MatchCard("1234","Kim", "bio", 12, urls, new ArrayList<String>()));
     mContactArrayAdapter.notifyDataSetChanged();
 
     mFetchingData = false;

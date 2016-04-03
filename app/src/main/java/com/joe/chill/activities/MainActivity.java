@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
                 } catch (JSONException e) {
                   Log.e(TAG, e.getMessage());
                 }
-                mUser = new MatchCard(id, name, bio, age, urls);
+                mUser = new MatchCard(id, name, bio, age, urls, new ArrayList<String>());
                 initializeActionBar();
               }
             }
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
   }
 
   private void getNewOptions() {
-    new HttpGetTask(this).execute("http://www.mocky.io/v2/56ffe4fb1300006b2b151d6b");
+    new HttpGetTask(this).execute("http://www.mocky.io/v2/5700b334120000791a7709b2");
   }
 
   @Override
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
       JSONArray jsonArray = new JSONArray(json);
       for (int i = 0; i < jsonArray.length(); i++) {
         String name = jsonArray.getJSONObject(i).getString("name");
-        String userid = jsonArray.getJSONObject(i).getString("userid");
+        String userid = jsonArray.getJSONObject(i).getString("id");
         String bio = jsonArray.getJSONObject(i).getString("bio");
         Calendar born = Calendar.getInstance();
         Calendar now = Calendar.getInstance();
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
         for (int j = 0; j < urlArray.length(); j++) {
           urls.add(urlArray.getString(j));
         }
-        mCardStackAdapter.add(new MatchCard(userid, name, bio, age, urls));
+        mCardStackAdapter.add(new MatchCard(userid, name, bio, age, urls, new ArrayList<String>()));
       }
       mCardStackAdapter.notifyDataSetChanged();
     } catch (JSONException e) {
@@ -234,6 +234,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
        switch (item.getItemId()) {
          case R.id.action_settings:
            intent = new Intent(this, ProfileSettingsActivity.class);
+           intent.putExtra(TAG, mUser);
            startActivity(intent);
            return true;
          case R.id.action_Chat:
