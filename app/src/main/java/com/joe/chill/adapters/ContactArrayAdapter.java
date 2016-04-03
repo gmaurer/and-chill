@@ -40,7 +40,6 @@ public class ContactArrayAdapter extends ArrayAdapter<MatchCard> {
         .dontAnimate()
         .thumbnail( 0.1f)
         .into(imageView);
-    imageView.setImageResource(R.drawable.dummy_profile_1);
 
     return convertView;
   }

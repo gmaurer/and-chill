@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import com.joe.chill.R;
+import com.joe.chill.Utility;
 import com.joe.chill.adapters.ContactArrayAdapter;
 import com.joe.chill.interfaces.JsonHandler;
 import com.joe.chill.structs.MatchCard;
@@ -18,21 +19,25 @@ import java.util.List;
 
 public class ChatListActivity extends AppCompatActivity implements JsonHandler {
   public static final String TAG = "ChatListActivity";
+  public static List<MatchCard> mMatches = new ArrayList<>();
   private Toolbar mToolbar;
   private ContactArrayAdapter mContactArrayAdapter;
   private List<MatchCard> mMatchCardList;
   private ListView mListView;
   private boolean mFetchingData = false;
+  private MatchCard mMatchCard;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_chat_list);
 
+    mMatchCard = Utility.getUserFromPrefs(this);
+
     mToolbar = (Toolbar) findViewById(R.id.toolbar);
     mListView = (ListView) findViewById(R.id.listViewContacts);
 
-    mMatchCardList = new ArrayList<>();
+    mMatchCardList = new ArrayList<>(mMatches);
     mContactArrayAdapter = new ContactArrayAdapter(this, mMatchCardList);
     mListView.setAdapter(mContactArrayAdapter);
 
@@ -89,21 +94,21 @@ public class ChatListActivity extends AppCompatActivity implements JsonHandler {
   }
 
   private void getMatches() {
-    mFetchingData = true;
-    processJson("");
+//    mFetchingData = true;
+//    processJson("");
   }
 
   @Override
   public void processJson(String json) {
-    List<String> urls = new ArrayList<>();
-    urls.add("http://www.eonline.com/eol_images/Entire_Site/201564/rs_600x600-150704101830-600.kim-kardashian.cm.7415.jpg");
-
-    mContactArrayAdapter.add(new MatchCard("1234","Kim", "bio", 12, urls, new ArrayList<String>()));
-    mContactArrayAdapter.notifyDataSetChanged();
-
-    mFetchingData = false;
-    if (mContactArrayAdapter.isEmpty()) {
-
-    }
+//    List<String> urls = new ArrayList<>();
+//    urls.add("http://www.eonline.com/eol_images/Entire_Site/201564/rs_600x600-150704101830-600.kim-kardashian.cm.7415.jpg");
+//
+//    mContactArrayAdapter.add(new MatchCard("1234","Kim", "bio", 12, urls, new ArrayList<String>()));
+//    mContactArrayAdapter.notifyDataSetChanged();
+//
+//    mFetchingData = false;
+//    if (mContactArrayAdapter.isEmpty()) {
+//
+//    }
   }
 }

@@ -35,7 +35,18 @@ public class CardStackAdapter extends ArrayAdapter<MatchCard> {
     convertView.setTag(item);
     TextView textViewName = (TextView) convertView.findViewById(R.id.cardStackName);
     TextView textViewAge = (TextView) convertView.findViewById(R.id.cardStackAge);
+    TextView textViewGenres = (TextView) convertView.findViewById(R.id.cardStackGenres);
     ImageView imageView = (ImageView) convertView.findViewById(R.id.cardStackImage);
+
+    StringBuilder stringBuilder = new StringBuilder();
+    for (int i = 0; i < item.getGenres().size(); i++) {
+      stringBuilder.append(item.getGenres().get(i));
+      if (i + 1 < item.getGenres().size()) {
+        stringBuilder.append(", ");
+      }
+    }
+
+    textViewGenres.setText(stringBuilder.toString());
 
     textViewName.setText(item.getName() + ",");
     textViewAge.setText(String.valueOf(item.getAge()));

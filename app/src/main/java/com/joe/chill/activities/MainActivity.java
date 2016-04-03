@@ -25,6 +25,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.joe.chill.R;
 import com.joe.chill.ToolbarUtility;
+import com.joe.chill.Utility;
 import com.joe.chill.adapters.CardStackAdapter;
 import com.joe.chill.interfaces.JsonHandler;
 import com.joe.chill.structs.MatchCard;
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
       @Override
       public void onViewSwipedToRight(int position) {
         mCardStackAdapter.pop();
+        ChatListActivity.mMatches.add(mCardStackAdapter.getItem(position));
       }
 
       @Override
@@ -160,14 +162,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
                   Log.e(TAG, e.getMessage());
                 }
                 mUser = new MatchCard(id, name, bio, age, urls, new ArrayList<String>());
-                SharedPreferences sharedPreferences = getSharedPreferences("Me", Context
-                    .MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("name", mUser.getName());
-                editor.putString("id", mUser.getUserId());
-                editor.putLong("age", mUser.getAge());
-                editor.putStringSet("urls", new HashSet<String>(mUser.getImageUrls()));
-                editor.putString("bio", mUser.getUserBio());
+                Utility.setPrefsFromUser(getApplicationContext(), mUser);
                 initializeActionBar();
               }
             }
@@ -223,12 +218,17 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
         if (born.get(Calendar.MONTH) > now.get(Calendar.MONTH)) {
           age--;
         }
+        JSONArray genreArray = jsonArray.getJSONObject(i).getJSONArray("genres");
+        List<String> genres = new ArrayList<>();
+        for (int j = 0; j < genreArray.length(); j++) {
+          genres.add(genreArray.getString(j));
+        }
         JSONArray urlArray = jsonArray.getJSONObject(i).getJSONArray("pics");
         List<String> urls = new ArrayList<>();
         for (int j = 0; j < urlArray.length(); j++) {
           urls.add(urlArray.getString(j));
         }
-        mCardStackAdapter.add(new MatchCard(userid, name, bio, age, urls, new ArrayList<String>()));
+        mCardStackAdapter.add(new MatchCard(userid, name, bio, age, urls, genres));
       }
       mCardStackAdapter.notifyDataSetChanged();
     } catch (JSONException e) {
@@ -253,7 +253,6 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
        switch (item.getItemId()) {
          case R.id.action_settings:
            intent = new Intent(this, ProfileSettingsActivity.class);
-           intent.putExtra(TAG, mUser);
            startActivity(intent);
            return true;
          case R.id.action_Chat:

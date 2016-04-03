@@ -3,6 +3,7 @@ package com.joe.chill.structs;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +15,6 @@ public class MatchCard implements Parcelable {
   private String mBio;
   private List<String> mImageUrls;
   private List<String> mGenres;
-  private List<String> mMatches;
 
   public int getPrefGender() {
     return mPrefGender;

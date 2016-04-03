@@ -16,7 +16,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.util.Util;
 import com.joe.chill.R;
+import com.joe.chill.Utility;
 import com.joe.chill.structs.MatchCard;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
     Button mGenderPreferenceButton;
     Toolbar mToolbar;
   EditText mEditTextName;
+  Button mSaveButton;
 
     HashMap<String, Integer> mGenderMap;
     String[] mGenresArray = {"Drama", "Action", "Anime", "Comedy"};
@@ -42,14 +45,24 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_settings);
 
-      Intent intent = getIntent();
-      mUser = intent.getParcelableExtra(MainActivity.TAG);
+      mUser = Utility.getUserFromPrefs(this);
 
       ImageView imageView = (ImageView) findViewById(R.id.imageViewSettings);
       Glide.with(this).load(mUser.getImageUrls().get(0)).fitCenter().into(imageView);
 
       mEditTextName = (EditText) findViewById(R.id.editTextSettingsName);
       mEditTextName.setText(mUser.getName());
+
+      mSaveButton = (Button) findViewById(R.id.saveButton);
+      mSaveButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          mUser.setUserBio(((EditText)findViewById(R.id.bioEditText)).getText().toString());
+          mUser.setName(((EditText) findViewById(R.id.editTextSettingsName)).getText().toString());
+          mUser.setGender(((Spinner) findViewById(R.id.genderSpinner)).getSelectedItemPosition());
+          Utility.setPrefsFromUser(getApplicationContext(), mUser);
+        }
+      });
 
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
