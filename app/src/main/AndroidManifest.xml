@@ -17,6 +17,7 @@
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <activity android:name="com.facebook.FacebookActivity"
+            android:screenOrientation="portrait"
             android:configChanges=
                 "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
@@ -24,18 +25,24 @@
         <provider android:authorities="com.facebook.app.FacebookContentProvider223674741353538"
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true" />
-    <activity android:name=".activities.ProfileSettingsActivity"/>
-    <activity android:name=".activities.LoginActivity">
+    <activity android:name=".activities.ProfileSettingsActivity"
+        android:screenOrientation="portrait"/>
+    <activity android:name=".activities.LoginActivity"
+        android:screenOrientation="portrait">
       <intent-filter>
         <category android:name="android.intent.category.LAUNCHER"/>
         <action android:name="android.intent.action.MAIN"/>
       </intent-filter>
     </activity>
-        <activity android:name=".activities.MatchDetailActivity" />
-        <activity android:name=".activities.PrivateMessageActivity"></activity>
-        <activity android:name=".activities.MainActivity"></activity>
+        <activity android:name=".activities.MatchDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.PrivateMessageActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
 
-    <activity android:name=".activities.ChatListActivity"></activity>
+    <activity android:name=".activities.ChatListActivity"
+        android:screenOrientation="portrait"></activity>
   </application>
 
 </manifest>

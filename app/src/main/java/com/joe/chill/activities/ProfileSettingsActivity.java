@@ -3,18 +3,16 @@ package com.joe.chill.activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.bumptech.glide.Glide;
@@ -176,7 +174,7 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
         };
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setTitle("Select Perferred Genders");
+        dialogBuilder.setTitle("Select Preferred Genders");
         dialogBuilder.setMultiChoiceItems(genders, checkedGenders, genderDialogListner);
         dialogBuilder.setNeutralButton("Close", new DialogInterface.OnClickListener() {
             @Override
