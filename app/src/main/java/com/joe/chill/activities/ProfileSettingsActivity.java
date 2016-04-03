@@ -118,8 +118,17 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
     protected void onChangeSelectedGenres() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (String genre : mSelectedGenresArrayList)
-            stringBuilder.append(genre + ",");
+        if(mSelectedGenresArrayList.size() > 2) {
+            stringBuilder.append(mSelectedGenresArrayList.get(0) + ", ");
+            stringBuilder.append(mSelectedGenresArrayList.get(1) + "...");
+        }
+        else {
+            int i;
+            for (i = 0; i < mSelectedGenresArrayList.size() - 1; i++) {
+                stringBuilder.append(mSelectedGenresArrayList.get(i) + ", ");
+            }
+            stringBuilder.append(mSelectedGenresArrayList.get(i++));
+        }
 
         mGenreButton.setText(stringBuilder.toString());
     }
@@ -165,9 +174,17 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
     protected void onChangeSelectedGenderPreferences() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (String genre : mSelectedGenderPreferenceList)
-            stringBuilder.append(genre + ",");
-
+        if(mSelectedGenderPreferenceList.size() > 2) {
+            stringBuilder.append(mSelectedGenderPreferenceList.get(0) + ", ");
+            stringBuilder.append(mSelectedGenderPreferenceList.get(1) + "...");
+        }
+        else {
+            int i;
+            for (i = 0; i < mSelectedGenderPreferenceList.size() - 1; i++) {
+                stringBuilder.append(mSelectedGenderPreferenceList.get(i) + ",");
+            }
+            stringBuilder.append(mSelectedGenderPreferenceList.get(i++));
+        }
         mGenderPreferenceButton.setText(stringBuilder.toString());
     }
 

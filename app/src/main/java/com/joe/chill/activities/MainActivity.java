@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.joe.chill.R;
+import com.joe.chill.ToolbarUtility;
 import com.joe.chill.adapters.CardStackAdapter;
 import com.joe.chill.interfaces.JsonHandler;
 import com.joe.chill.structs.MatchCard;
@@ -171,6 +172,5 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
           default:
             return super.onOptionsItemSelected(item);
        }
-
     }
 }

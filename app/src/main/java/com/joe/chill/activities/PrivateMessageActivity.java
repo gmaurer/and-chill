@@ -26,6 +26,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.joe.chill.R;
+import com.joe.chill.ToolbarUtility;
 import com.joe.chill.adapters.MessageArrayAdapter;
 import com.joe.chill.structs.ActionBarTarget;
 import com.joe.chill.structs.ChatMessage;
@@ -123,7 +124,7 @@ public class PrivateMessageActivity extends AppCompatActivity {
     // Handle action bar item clicks here. The action bar will
     // automatically handle clicks on the Home/Up button, so long
     // as you specify a parent activity in AndroidManifest.xml.
-
+    //
     Intent intent;
 
     switch (item.getItemId()) {

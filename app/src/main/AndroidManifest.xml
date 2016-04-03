@@ -14,31 +14,28 @@
         android:name="com.facebook.sdk.ApplicationId"
         android:value="@string/facebook_app_id"/>
 
-    <activity android:name=".activities.ProfileSettingsActivity">
-    </activity>
-    <activity
-        android:name="com.facebook.FacebookActivity"
-        android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-        android:label="@string/app_name"
-        android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
-    <provider
-        android:name="com.facebook.FacebookContentProvider"
-        android:authorities="com.facebook.app.FacebookContentProvider223674741353538"
-        android:exported="true"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
+        <provider android:authorities="com.facebook.app.FacebookContentProvider223674741353538"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true" />
+    <activity android:name=".activities.ProfileSettingsActivity"/>
+    <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.MatchDetailActivity" />
+        <activity android:name=".activities.PrivateMessageActivity"></activity>
+        <activity android:name=".activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
-    <activity android:name=".activities.LoginActivity"/>
-    <activity android:name=".activities.MatchDetailActivity"/>
-    <activity android:name=".activities.PrivateMessageActivity"/>
-    <activity android:name=".activities.MainActivity">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
-    <activity android:name=".activities.ChatListActivity">
-    </activity>
+    <activity android:name=".activities.ChatListActivity"></activity>
   </application>
 
 </manifest>
