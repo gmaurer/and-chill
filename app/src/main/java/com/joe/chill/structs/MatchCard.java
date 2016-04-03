@@ -14,6 +14,26 @@ public class MatchCard implements Parcelable {
   private String mBio;
   private List<String> mImageUrls;
   private List<String> mGenres;
+  private List<String> mMatches;
+
+  public int getPrefGender() {
+    return mPrefGender;
+  }
+
+  public void setPrefGender(int prefGender) {
+    mPrefGender = prefGender;
+  }
+
+  public int getGender() {
+    return mGender;
+  }
+
+  public void setGender(int gender) {
+    mGender = gender;
+  }
+
+  private int mPrefGender;
+  private int mGender;
   private long mAge;
 
   public MatchCard(String userId, String name, String bio, long age, List<String> imageUrls,

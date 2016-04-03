@@ -3,13 +3,11 @@ package com.joe.chill.activities;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -18,19 +16,18 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.Target;
 import com.joe.chill.R;
-import com.joe.chill.ToolbarUtility;
 import com.joe.chill.adapters.MessageArrayAdapter;
-import com.joe.chill.structs.ActionBarTarget;
 import com.joe.chill.structs.ChatMessage;
 import com.joe.chill.structs.MatchCard;
+
+import java.util.Date;
+import java.util.Random;
 
 public class PrivateMessageActivity extends AppCompatActivity {
 
@@ -43,7 +40,6 @@ public class PrivateMessageActivity extends AppCompatActivity {
   private Toolbar mToolbar;
   private ActionBar mActionBar;
   private MatchCard mUser;
-  private boolean side = false;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -106,10 +102,80 @@ public class PrivateMessageActivity extends AppCompatActivity {
       }
     });
   }
+
   private boolean sendChatMessage() {
-    mMessageArrayAdapter.add(new ChatMessage(side, mEditText.getText().toString()));
-    mEditText.setText("");
-    side = !side;
+    String message = mEditText.getText().toString();
+    if (message.length() > 0) {
+      mMessageArrayAdapter.add(new ChatMessage(true, message));
+      String resp = "oO";
+      if (message.contains("movie") && message.contains("favorite")) {
+        Random r = new Random(new Date().getTime());
+        int n = r.nextInt(5);
+        switch (n) {
+          case 0:
+            resp = "My favorite movie is Star Wars!";
+            break;
+          case 1:
+            resp = "My favorite movie is Titanic!";
+            break;
+          case 2:
+            resp = "My favorite movie is National Treasure III!";
+            break;
+          case 3:
+            resp = "My favorite movie is The Notebook!";
+            break;
+          case 4:
+            resp = "My favorite movie is The Human Centipede!";
+            break;
+
+        }
+      } else if (message.contains("hate")) {
+        Random r = new Random(new Date().getTime());
+        int n = r.nextInt(5);
+        switch (n) {
+          case 0:
+            resp = "I hate you.";
+            break;
+          case 1:
+            resp = "Please stop.";
+            break;
+          case 2:
+            resp = "That's not nice";
+            break;
+          case 3:
+            resp = ":'(";
+            break;
+          case 4:
+            resp = "Yo momma so fat";
+            break;
+        }
+      } else {
+        Random r = new Random(new Date().getTime());
+        int n = r.nextInt(5);
+        switch (n) {
+          case 0:
+            resp = "I can't wait to meet you!";
+            break;
+          case 1:
+            resp = "Let's chill ;)";
+            break;
+          case 2:
+            resp = "heyyyyyy";
+            break;
+          case 3:
+            resp = "what's up?";
+            break;
+          case 4:
+            resp = "noooooooo";
+            break;
+        }
+      }
+      mEditText.setText("");
+
+      mMessageArrayAdapter.add(new ChatMessage(false, resp));
+      //side = !side;
+
+    }
     return true;
   }
 

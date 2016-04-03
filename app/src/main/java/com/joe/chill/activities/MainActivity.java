@@ -1,6 +1,8 @@
 package com.joe.chill.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
@@ -12,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
@@ -34,8 +37,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -91,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
 
       @Override
       public void onStackEmpty() {
-        getNewOptions();
+        stackEmpty();
       }
     });
 
@@ -119,8 +124,13 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
         mSwipeStack.swipeTopViewToRight();
       }
     });
+  }
 
-    getNewOptions();
+  private void stackEmpty() {
+    Toast toast = new Toast(this);
+    toast.setText("You're out of potential matches!");
+    toast.setDuration(Toast.LENGTH_LONG);
+    toast.show();
   }
 
   private void updateWithToken(AccessToken currentAccessToken) {
@@ -150,6 +160,14 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
                   Log.e(TAG, e.getMessage());
                 }
                 mUser = new MatchCard(id, name, bio, age, urls, new ArrayList<String>());
+                SharedPreferences sharedPreferences = getSharedPreferences("Me", Context
+                    .MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("name", mUser.getName());
+                editor.putString("id", mUser.getUserId());
+                editor.putLong("age", mUser.getAge());
+                editor.putStringSet("urls", new HashSet<String>(mUser.getImageUrls()));
+                editor.putString("bio", mUser.getUserBio());
                 initializeActionBar();
               }
             }
@@ -175,6 +193,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
             }
           });
     }
+    getNewOptions();
     mActionBar.setTitle("&chill");
   }
 
@@ -185,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
   }
 
   private void getNewOptions() {
-    new HttpGetTask(this).execute("http://www.mocky.io/v2/5700b334120000791a7709b2");
+    new HttpGetTask(this).execute("http://www.mocky.io/v2/5700ba08120000601b7709b7");
   }
 
   @Override
