@@ -34,4 +34,6 @@ dependencies {
     compile 'com.github.jd-alexander:LikeButton:0.1.8'
   compile 'com.github.markushi:circlebutton:1.1'
   compile 'de.hdodenhof:circleimageview:2.0.0'
+
+    compile 'com.google.android.gms:play-services-ads:8.4.0'
 }

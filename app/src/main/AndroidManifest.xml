@@ -26,6 +26,7 @@
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true" />
     <activity android:name=".activities.ProfileSettingsActivity"
+        android:windowSoftInputMode="adjustPan"
         android:screenOrientation="portrait"/>
     <activity android:name=".activities.LoginActivity"
         android:screenOrientation="portrait">
