@@ -1,7 +1,6 @@
 package com.joe.chill.activities;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
@@ -15,12 +14,9 @@ import com.joe.chill.adapters.CardStackAdapter;
 import com.joe.chill.interfaces.JsonHandler;
 import com.joe.chill.structs.MatchCard;
 import com.joe.chill.tasks.HttpGetTask;
-import com.like.LikeButton;
-import com.like.OnLikeListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -166,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements JsonHandler {
            startActivity(intent);
            return true;
          case R.id.action_Chat:
-           intent = new Intent(this, PrivateMessageActivity.class);
+           intent = new Intent(this, ChatListActivity.class);
            startActivity(intent);
            return true;
          case android.R.id.home:

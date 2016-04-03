@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.joe.chill.R;
+import com.joe.chill.structs.MatchCard;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,6 +40,7 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(mToolbar);
+      getSupportActionBar().setTitle("Profile Settings");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mGenderMap = new HashMap<>();
@@ -190,7 +192,7 @@ public class ProfileSettingsActivity extends AppCompatActivity implements View.O
                 startActivity(intent);
                 return true;
             case R.id.action_Chat:
-                intent = new Intent(this, PrivateMessageActivity.class);
+                intent = new Intent(this, ChatListActivity.class);
                 startActivity(intent);
                 return true;
             case android.R.id.home:

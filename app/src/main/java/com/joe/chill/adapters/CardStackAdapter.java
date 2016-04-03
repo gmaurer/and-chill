@@ -28,11 +28,6 @@ public class CardStackAdapter extends ArrayAdapter<MatchCard> {
   }
 
   @Override
-  public void add(MatchCard matchCard) {
-    super.add(matchCard);
-  }
-
-  @Override
   public View getView(int position, View convertView, ViewGroup parent) {
     MatchCard item = getItem(position);
     LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -47,7 +42,7 @@ public class CardStackAdapter extends ArrayAdapter<MatchCard> {
     Glide.with(getContext())
         .load(item.getImageUrls().get(0))
         .centerCrop()
-        .placeholder(R.drawable.heart_on)
+        .thumbnail(0.1f)
         .crossFade()
         .into(imageView);
     imageView.setImageResource(R.drawable.dummy_profile_1);

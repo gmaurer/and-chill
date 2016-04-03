@@ -37,6 +37,7 @@ public class MatchDetailActivity extends AppCompatActivity {
 
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    getSupportActionBar().setTitle(mUser.getName());
 
     mCarouselView = (CarouselView) findViewById(R.id.carouselView);
     mCarouselView.setPageCount(mUser.getImageUrls().size());
@@ -70,7 +71,7 @@ public class MatchDetailActivity extends AppCompatActivity {
   }
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R.menu.menu_main, menu);
+    getMenuInflater().inflate(R.menu.detail_menu, menu);
     return true;
   }
 
@@ -83,13 +84,9 @@ public class MatchDetailActivity extends AppCompatActivity {
     Intent intent;
 
     switch (item.getItemId()) {
-      case R.id.action_settings:
-        intent = new Intent(this, ProfileSettingsActivity.class);
-        startActivity(intent);
+      case R.id.action_match:
         return true;
-      case R.id.action_Chat:
-        intent = new Intent(this, PrivateMessageActivity.class);
-        startActivity(intent);
+      case R.id.action_pass:
         return true;
       case android.R.id.home:
         onBackPressed();
